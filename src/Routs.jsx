@@ -7,6 +7,7 @@ import Rooms from "./Components/Pages/Rooms/Rooms";
 import CardDetails from "./Components/Pages/CardDetails/CardDetails";
 import MyBooking from "./Components/Pages/MyBooking/MyBooking";
 import UpdateBookinfDate from "./Components/Pages/UpdatBookingDate.jsx/UpdateBookinfDate";
+import PrivetRoute from "./Components/PrivetRoute/PrivetRoute";
 
  export const router = createBrowserRouter([
     {
@@ -37,7 +38,7 @@ import UpdateBookinfDate from "./Components/Pages/UpdatBookingDate.jsx/UpdateBoo
         },
         {
           path: "/bookingRooms",
-          element: <MyBooking></MyBooking>,
+          element: <PrivetRoute><MyBooking></MyBooking></PrivetRoute>,
           loader: () => fetch("http://localhost:5000/bookingRooms")
         },
         {

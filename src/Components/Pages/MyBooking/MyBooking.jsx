@@ -162,7 +162,9 @@ const MyBooking = () => {
       </div>
 
       {/* reviue  */}
-      <div className=" flex justify-center items-center">
+
+      {
+        user? <div className=" flex justify-center items-center">
         <form
           onSubmit={obCount.count > 0 ? handlerrevius : handleMassage}
           className="flex w-full max-w-sm space-x-3"
@@ -277,7 +279,9 @@ const MyBooking = () => {
             </div>
           </div>
         </form>
-      </div>
+      </div> : <p className=" text-center">Login User Can Reviue a post</p>
+      }
+      
     </div>
   );
 };

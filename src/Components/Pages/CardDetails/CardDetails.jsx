@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AiFillHome, AiOutlineWifi } from "react-icons/ai";
 import { MdOutlineBalcony } from "react-icons/md";
 import { FaBath } from "react-icons/fa";
@@ -9,10 +9,11 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import toast from 'react-hot-toast';
 import { addDays } from "date-fns";
 const CardDetails = () => {
   // const [startDate, setStartDate] = useState(new Date());
-  const [reviues , setReviues] = useState([]);
+  const [reviues, setReviues] = useState([]);
   const [endDate, setEndDate] = useState(null);
   const onChange = (dates) => {
     const [start, end] = dates;
@@ -66,17 +67,18 @@ const CardDetails = () => {
     startDate,
     endDate,
   };
- 
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/reviues?name=${name}`);
-  
+        const response = await fetch(
+          `http://localhost:5000/reviues?name=${name}`
+        );
+
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
-  
+
         const data = await response.json();
         // Handle the data here, for example, set it in state
         console.log(data);
@@ -86,14 +88,10 @@ const CardDetails = () => {
         console.error("Error fetching data:", error);
       }
     };
-  
+
     fetchData();
   }, [name]);
 
-
-
-
-  
   console.log();
   const handleDateClick = () => {
     console.log("Selected Date:", startDate.toDateString());
@@ -113,6 +111,7 @@ const CardDetails = () => {
       .then((data) => {
         // Handle the successful response data
         console.log("Success:", data);
+        toast.success("Booking Sucessfully")
       });
 
     // console.log();
@@ -246,9 +245,7 @@ const CardDetails = () => {
       <div className="flex mt-9">
         <div className="w-2/3">
           <div className="my-5 p-5">
-            <p className="mb-3">
-              {description}
-            </p>
+            <p className="mb-3">{description}</p>
             <p>
               Set in Madrid City Centre, just a 1-minute walk from the Royal
               Palace and 400 metres from Plaza Mayor Square, Oriente Palace
@@ -282,8 +279,7 @@ const CardDetails = () => {
                 </span>
               </p>
               <p className="bg-orange-400 p-2 rounded-lg">{specialOffers}</p>
-            <p  className="bg-orange-400 p-2 rounded-lg">{availability}
-</p>
+              <p className="bg-orange-400 p-2 rounded-lg">{availability}</p>
               <p className="text-lg text-3xl font-semibold">
                 {" "}
                 Room Size{" "}
@@ -309,51 +305,55 @@ const CardDetails = () => {
                 />
               </div>
               <div className="card-actions">
-                <button onClick={handleDateClick} className="btn btn-primary">
-                  Book Now
-                </button>
+                {user ? (
+                  <button onClick={handleDateClick} className="btn btn-primary">
+                    Book Now
+                  </button>
+                ) : (
+                  <Link to="/login" className="btn btn-primary">
+                    Book Now
+                  </Link>
+                )}
               </div>
             </div>
           </div>
         </div>
       </div>
-            
-     
 
-    <div className="grid grid-rows-1 md:grid-cols-3 grid-cols-4 justify-center items-center">
-    {
-      reviues?.map(reviue => (
-        <div key={reviue.id} className="flex justify-center relative top-1/3">
-          <div className="relative grid grid-cols-1 gap-4 p-4 mb-8 border rounded-lg bg-white shadow-lg">
-          <div className="flex justify-center relative top-1/3">
-      <div className="relative grid grid-cols-1 gap-4 p-4 mb-8 border rounded-lg bg-white shadow-lg">
-        <div className="relative flex gap-4">
-          <img
-            src="https://icons.iconarchive.com/icons/diversity-avatars/avatars/256/charlie-chaplin-icon.png"
-            className="relative rounded-lg -top-8 -mb-4 bg-white border h-20 w-20"
-            alt=""
-            loading="lazy"
-          />
-          <div className="flex flex-col w-full">
-            <div className="flex flex-row justify-between">
-              <p className="relative text-xl whitespace-nowrap truncate overflow-hidden">{reviue?.userName}</p>
-              <a className="text-gray-500 text-xl" href="#">
-                <i className="fa-solid fa-trash"></i>
-              </a>
+      <div className="grid grid-rows-1 md:grid-cols-3 grid-cols-4 justify-center items-center">
+        {reviues?.map((reviue) => (
+          <div key={reviue.id} className="flex justify-center relative top-1/3">
+            <div className="relative grid grid-cols-1 gap-4 p-4 mb-8 border rounded-lg bg-white shadow-lg">
+              <div className="flex justify-center relative top-1/3">
+                <div className="relative grid grid-cols-1 gap-4 p-4 mb-8 border rounded-lg bg-white shadow-lg">
+                  <div className="relative flex gap-4">
+                    <img
+                      src="https://icons.iconarchive.com/icons/diversity-avatars/avatars/256/charlie-chaplin-icon.png"
+                      className="relative rounded-lg -top-8 -mb-4 bg-white border h-20 w-20"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <div className="flex flex-col w-full">
+                      <div className="flex flex-row justify-between">
+                        <p className="relative text-xl whitespace-nowrap truncate overflow-hidden">
+                          {reviue?.userName}
+                        </p>
+                        <a className="text-gray-500 text-xl" href="#">
+                          <i className="fa-solid fa-trash"></i>
+                        </a>
+                      </div>
+                      <p className="text-gray-400 text-sm">
+                        {reviue?.selectedValue}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="-mt-4 text-gray-500">{reviue?.comment}</p>
+                </div>
+              </div>
             </div>
-            <p className="text-gray-400 text-sm">{reviue?.selectedValue}</p>
           </div>
-        </div>
-        <p className="-mt-4 text-gray-500">
-        {reviue?.comment}
-        </p>
+        ))}
       </div>
-    </div>
-          </div>
-        </div>
-      )) 
-    }
-    </div>
     </div>
   );
 };
