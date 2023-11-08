@@ -247,8 +247,7 @@ const CardDetails = () => {
         <div className="w-2/3">
           <div className="my-5 p-5">
             <p className="mb-3">
-              Youre eligible for a Genius discount at Oriente Palace Apartments!
-              To save at this property, all you have to do is sign in.
+              {description}
             </p>
             <p>
               Set in Madrid City Centre, just a 1-minute walk from the Royal
@@ -282,6 +281,9 @@ const CardDetails = () => {
                   {pricePerNight}
                 </span>
               </p>
+              <p className="bg-orange-400 p-2 rounded-lg">{specialOffers}</p>
+            <p  className="bg-orange-400 p-2 rounded-lg">{availability}
+</p>
               <p className="text-lg text-3xl font-semibold">
                 {" "}
                 Room Size{" "}

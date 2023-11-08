@@ -35,13 +35,12 @@ const NewsLetterSign = () => {
                       height="24"
                     />
                   </svg>
-                  <span className="relative">The</span>
+                  <span className="relative">To</span>
                 </span>{' '}
-                quick, brown fox jumps over a lazy dog
+                 update Our new informatin Submit your Email
               </h2>
               <p className="text-base text-gray-700 md:text-lg">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque rem aperiam, eaque ipsa quae.
+                To update Our new informatin Submit your Email
               </p>
             </div>
             <form className="flex flex-col items-center w-full mb-4 md:flex-row md:px-16">
@@ -53,7 +52,7 @@ const NewsLetterSign = () => {
               />
               <button
                 type="submit"
-                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                className="inline-flex btn btn-primary items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
               >
                 Subscribe
               </button>

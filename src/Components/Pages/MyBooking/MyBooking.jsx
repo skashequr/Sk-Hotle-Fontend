@@ -47,6 +47,15 @@ const MyBooking = () => {
         }
       });
   };
+  // http://localhost:5000/updateDate/654bea2f2f22e7dffa45a676
+  // fetch(`http://localhost:5000/updateDate/${_id}`)
+  // .then((res) => res.json())
+  // .then((data) => {
+  //   console.log(data);
+  // });
+  const handleUpdate = (_id) =>{
+    
+  }
 
   const [selectedRating, setSelectedRating] = useState(5); // Initialize with a default value
   const [obCount, setCount] = useState({});

@@ -50,25 +50,27 @@ const MapComponent = () => {
           hotle location
         </h2>
         <p className="text-base text-gray-700 md:text-lg">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.
+         ErshadNAgar , Tongi , Gazipur
         </p>
         <hr className="my-8 border-gray-300" />
+        <p>DownLode Our Mobile App</p>
         <div className="flex items-center mb-3 sm:justify-center">
-          <a href="/" className="mr-3 transition duration-300 hover:shadow-lg">
+          
+          <Link className="mr-3 transition duration-300 hover:shadow-lg">
+            
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/1000px-Download_on_the_App_Store_Badge.svg.png"
               className="object-cover object-top w-32 mx-auto"
               alt=""
             />
-          </a>
-          <a href="/" className="transition duration-300 hover:shadow-lg">
+          </Link>
+          <Link className="transition duration-300 hover:shadow-lg">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1000px-Google_Play_Store_badge_EN.svg.png"
               className="object-cover object-top w-32 mx-auto"
               alt=""
             />
-          </a>
+          </Link>
         </div>
         <p className="max-w-xs text-xs text-gray-600 sm:text-sm sm:max-w-sm sm:mx-auto">
           Sed ut unde omnis iste natus accusantium doloremque laudantium omnis

@@ -6,6 +6,7 @@ import LoginForm from "./Components/Pages/Login/Login";
 import Rooms from "./Components/Pages/Rooms/Rooms";
 import CardDetails from "./Components/Pages/CardDetails/CardDetails";
 import MyBooking from "./Components/Pages/MyBooking/MyBooking";
+import UpdateBookinfDate from "./Components/Pages/UpdatBookingDate.jsx/UpdateBookinfDate";
 
  export const router = createBrowserRouter([
     {
@@ -38,6 +39,11 @@ import MyBooking from "./Components/Pages/MyBooking/MyBooking";
           path: "/bookingRooms",
           element: <MyBooking></MyBooking>,
           loader: () => fetch("http://localhost:5000/bookingRooms")
+        },
+        {
+          path: "/bookingRooms/updateDate/:id",
+          element: <UpdateBookinfDate></UpdateBookinfDate>,
+          loader: ({ params }) => fetch(`http://localhost:5000/updateDate/${params.id}`)
         }
       ],
     },
