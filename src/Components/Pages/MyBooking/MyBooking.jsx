@@ -13,8 +13,22 @@ const MyBooking = () => {
   const { user } = useContext(AuthContext);
   const email = user?.email;
   const uname = user?.displayName;
-  const userbookingFetch = useLoaderData();
-  const [userbooking, setUser] = useState(userbookingFetch);
+  // const userbookingFetch = useLoaderData();
+  const [userbookingFetch, setUserbookingFetch] = useState([])
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/bookingRooms?email=${email}`)
+    .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+    setUserbookingFetch(data)
+  });
+  }, [email])
+  
+
+
+
+  // const [userbooking, setUser] = useState(userbookingFetch);
 
   const confirmCancelBooking = (_id) => {
     confirmAlert({
@@ -152,7 +166,7 @@ const MyBooking = () => {
     <div>
       <h1>Your Booking</h1>
       <div className="sm:px-7 md:px-14 lg:px-36 gap-5">
-        {userbooking?.map((booked) => (
+        {userbookingFetch?.map((booked) => (
           <BookingCard
             key={booked.id}
             handleCancelBooking={() => confirmCancelBooking(booked._id)}

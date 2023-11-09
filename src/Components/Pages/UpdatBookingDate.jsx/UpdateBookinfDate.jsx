@@ -8,6 +8,11 @@ const UpdateBookingDate = () => {
   const data = useLoaderData();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
+  const onChange = (dates) => {
+    const [start, end] = dates;
+    setStartDate(start);
+    setEndDate(end);
+  };
 
   // Use an object to store the selected dates
   const dates = { startDate, endDate };
@@ -33,11 +38,7 @@ const UpdateBookingDate = () => {
     }
   }
 
-  const onChange = (dates) => {
-    const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
-  };
+  
 
   return (
     <div>
@@ -48,10 +49,7 @@ const UpdateBookingDate = () => {
           onChange={onChange}
           startDate={startDate}
           endDate={endDate}
-          excludeDates={[addDays(new Date(), 1), addDays(new Date(), 5)]}
           selectsRange
-          selectsStart={startDate != null}
-          selectsEnd={endDate != null}
           inline
         />
       </div>
