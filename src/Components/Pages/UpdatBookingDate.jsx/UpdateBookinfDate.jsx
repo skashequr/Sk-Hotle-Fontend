@@ -2,7 +2,8 @@ import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useParams } from 'react-router-dom';
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const UpdateBookingDate = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
@@ -26,6 +27,7 @@ const UpdateBookingDate = () => {
 
       const responseData = await response.json();
       console.log('Success:', responseData);
+      toast.success("");
     } catch (error) {
       console.error('Error during fetch:', error);
     }
