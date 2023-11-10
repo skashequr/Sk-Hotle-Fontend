@@ -1,38 +1,35 @@
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { addDays } from 'date-fns';
-import { useLoaderData } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const UpdateBookingDate = () => {
-  // const data = useLoaderData();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
-  // console.log(data);
-  // const handleUpdate = async () => {
-  //   try {
-  //     const response = await fetch("http://localhost:5000/bookingRooms", {
-  //       method: 'PATCH',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({ startDate, endDate }),
-  //     });
-  
-  //     console.log('Response Status:', response.status);
-  
-  //     if (!response.ok) {
-  //       throw new Error('Network response was not ok');
-  //     }
-  
-  //     const responseData = await response.json();
-  //     console.log('Success:', responseData);
-  //   } catch (error) {
-  //     console.error('Error during fetch:', error);
-  //   }
-  // };
-  
-  
+  const { id } = useParams(); // Destructure id from useParams directly
+
+  const handleUpdate = async () => {
+    try {
+      const response = await fetch(`http://localhost:5000/updateDate/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ startDate, endDate }),
+      });
+
+      console.log('Response Status:', response.status);
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const responseData = await response.json();
+      console.log('Success:', responseData);
+    } catch (error) {
+      console.error('Error during fetch:', error);
+    }
+  };
 
   return (
     <div>
@@ -52,7 +49,7 @@ const UpdateBookingDate = () => {
         />
       </div>
       <div className="flex justify-center items-center">
-        <button  className="btn btn-primary" type="button">
+        <button onClick={handleUpdate} className="btn btn-primary" type="button">
           Submit
         </button>
       </div>
