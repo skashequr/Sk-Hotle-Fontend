@@ -27,22 +27,22 @@ const Nav = () => {
       </li>
       <li>
       <NavLink
-        to="/messages"
+        to="/gallery"
         className={({ isActive, isPending }) =>
           isPending ? "pending" : isActive ? "active" : ""
         }
       >
-        Pricing
+        Gallery
       </NavLink>
       </li>
       <li>
       <NavLink
-        to="/messages"
+        to="/AboutUs"
         className={({ isActive, isPending }) =>
           isPending ? "pending" : isActive ? "active" : ""
         }
       >
-        Coustomers
+        About Us
       </NavLink>
       </li>
       <li>

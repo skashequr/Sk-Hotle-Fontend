@@ -8,6 +8,8 @@ import CardDetails from "./Components/Pages/CardDetails/CardDetails";
 import MyBooking from "./Components/Pages/MyBooking/MyBooking";
 import UpdateBookinfDate from "./Components/Pages/UpdatBookingDate.jsx/UpdateBookinfDate";
 import PrivetRoute from "./Components/PrivetRoute/PrivetRoute";
+import { Content } from "./Components/Pages/Galler/Gallery";
+import { Team } from "./Components/Pages/AboutUs/AboutUs";
 
  export const router = createBrowserRouter([
     {
@@ -45,6 +47,14 @@ import PrivetRoute from "./Components/PrivetRoute/PrivetRoute";
           path: "/bookingRooms/updateDate/:id",
           element: <UpdateBookinfDate></UpdateBookinfDate>,
           loader: ({ params }) => fetch(`http://localhost:5000/updateDate/${params.id}`)
+        },
+        {
+          path: "/gallery",
+          element: <Content/>
+        },
+        {
+          path: "/AboutUs",
+          element: <Team></Team>
         }
       ],
     },

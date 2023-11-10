@@ -15,21 +15,26 @@ const MyBooking = () => {
   const uname = user?.displayName;
   // const userbookingFetch = useLoaderData();
   const [userbookingFetch, setUserbookingFetch] = useState([])
-
+  const [userbooking , setUserBooking] = useState(userbookingFetch)
   useEffect(() => {
     fetch(`http://localhost:5000/bookingRooms?email=${email}`)
-    .then((res) => res.json())
-  .then((data) => {
-    console.log(data);
-    setUserbookingFetch(data)
-  });
-  }, [email])
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setUserbookingFetch(data);
+      });
+  }, [email]);
+
+  useEffect(() => {
+    setUserBooking(userbookingFetch);
+  }, [userbookingFetch]);
   
 
 
 
-  // const [userbooking, setUser] = useState(userbookingFetch);
-
+  
+  console.log(userbooking);
+  console.log(userbookingFetch);
   const confirmCancelBooking = (_id) => {
     confirmAlert({
       title: "Confirm cancellation",
@@ -56,8 +61,9 @@ const MyBooking = () => {
         if (data.deletedCount > 0) {
           // Filter the user array based on the _id to remove the canceled booking
           const remaining = userbooking.filter((item) => item._id !== _id);
-          setUser(remaining);
+          setUserBooking(remaining);
           toast("Booking canceled");
+          console.log(userbookingFetch);
         }
       });
   };
@@ -166,7 +172,7 @@ const MyBooking = () => {
     <div>
       <h1>Your Booking</h1>
       <div className="sm:px-7 md:px-14 lg:px-36 gap-5">
-        {userbookingFetch?.map((booked) => (
+        {userbooking?.map((booked) => (
           <BookingCard
             key={booked.id}
             handleCancelBooking={() => confirmCancelBooking(booked._id)}
