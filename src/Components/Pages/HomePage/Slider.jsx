@@ -27,7 +27,7 @@ const Slider = () => {
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}
     >
-      <SwiperSlide><img className='w-[400px]  h-[300px]' src="https://i.ibb.co/KXyh1s3/Untitled.jpg" alt="" /></SwiperSlide>
+      <SwiperSlide><img className='lg:w-[400px]  lg:h-[300px]' src="https://i.ibb.co/KXyh1s3/Untitled.jpg" alt="" /></SwiperSlide>
       <SwiperSlide><img className='w-[400px] h-[300px]' src="https://i.ibb.co/wSyMLpH/Untitled.jpg" alt="" /></SwiperSlide>
       <SwiperSlide><img className='w-[400px] h-[300px]' src="https://i.ibb.co/kJfjv2d/Untitled.jpg" alt="" /></SwiperSlide>
       <SwiperSlide><img className='w-[400px] h-[300px]' src="https://i.ibb.co/wQWx54f/Untitled.jpg" alt="" /></SwiperSlide>
