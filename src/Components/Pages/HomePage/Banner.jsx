@@ -17,7 +17,7 @@ const Banner = () => {
     500,
     'Discound 20 prrsent forent clint',
     500,
-    'One',
+    'Find discound',
     500,
     '',
     500,
