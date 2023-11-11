@@ -95,8 +95,9 @@ const MyBooking = () => {
         console.error("Error fetching data:", error);
       });
   }, []);
+  console.log(roomsdata);
   const namesArray = roomsdata.map((entry) => entry.name);
-  // console.log(namesArray);
+  console.log(namesArray);
   useEffect(() => {
     fetch("https://asom-backend.vercel.app/bookingRoomsCount")
       .then((response) => {
@@ -163,7 +164,7 @@ const MyBooking = () => {
   };
   return (
     <div>
-      <h1>Your Booking</h1>
+      <h1 className="text-center text-5xl">Your Booking</h1>
       <div className="sm:px-7 md:px-14 lg:px-36 gap-5">
         {userbooking?.map((booked) => (
           <BookingCard
