@@ -119,7 +119,7 @@ const Nav = () => {
         <button className=" h-10 w-36  bg-[#144fcc] text-center text-white rounded-md border border-gray-100 ">Singin</button>
         </Link>
         <Link to="/regester">
-        <button className=" h-10 w-36  bg-[#144fcc]  text-white text-center rounded-md border border-gray-100">SingUp</button>
+        <button className=" lg:h-10 lg:w-36 h-5 w-5 bg-[#144fcc]  text-white text-center rounded-md border border-gray-100">SingUp</button>
         </Link>
       </div>
         }
