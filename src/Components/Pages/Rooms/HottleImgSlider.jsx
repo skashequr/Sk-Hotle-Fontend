@@ -8,6 +8,7 @@ const HottleImgSlider = () => {
   const [cardInfo , setCurdInfo] = useState([])
   const [relode, setRelode] = useState(false)
   const [currwntPage , setCurrentPage] = useState(0)
+  const [ok , setOk] = useState([])
   const itemsPerPage = 10;
   const numberOfPages = Math.ceil(count?.count / itemsPerPage);
   // const pages = [...Array(numberOfPages).keys()];
@@ -21,36 +22,24 @@ const HottleImgSlider = () => {
       // const value = parseInt(e)
       console.log(currwntPage);
   }
+  const [sort , setSort] = useState(-1)
   useEffect(() => {
-    fetch(`http://localhost:5000/roomdInfo?page=${currwntPage}&size=${itemsPerPage}`)
+    fetch(`http://localhost:5000/roomdInfo?page=${currwntPage}&size=${itemsPerPage}&sort=${sort}`)
     .then(res=>res.json())
     .then(data => {setCurdInfo(data)
      
     })
 
-  }, [currwntPage,relode])
+  }, [sort,currwntPage])
 
 
   const handleFilter = e =>{
-    const maxPrice = 10000; // Set your maximum price here
-    const filteredSuites = cardInfo.filter(suite => {
-    const price = parseInt(suite.pricePerNight.replace('$', ''), 10);
-    return price <= maxPrice;
-});
-setCurdInfo(filteredSuites)
-console.log(filteredSuites);
+   setSort(1)
   
   }
   const hightolow = e =>{
-    const hitolo = cardInfo.sort((a, b) => {
-      const priceA = parseInt(a.pricePerNight.replace('$', ''), 10);
-      const priceB = parseInt(b.pricePerNight.replace('$', ''), 10);
-      return priceB - priceA;
-      
-  });
-console.log(hitolo);
-setCurdInfo(hitolo)
-setRelode(true)
+    
+      setSort(-1)
   }
   return (
    <div>
@@ -68,8 +57,8 @@ setRelode(true)
             </details>
           </div>
 
-     {cardInfo?.map(curdData => <RoomsCurd curdData={curdData} key={curdData.id} />)}
-     
+     {cardInfo ?.map(curdData => <RoomsCurd curdData={curdData} key={curdData.id} />)}
+
     <div>
 
     

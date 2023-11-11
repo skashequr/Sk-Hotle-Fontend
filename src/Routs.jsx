@@ -10,11 +10,13 @@ import UpdateBookinfDate from "./Components/Pages/UpdatBookingDate.jsx/UpdateBoo
 import PrivetRoute from "./Components/PrivetRoute/PrivetRoute";
 import { Content } from "./Components/Pages/Galler/Gallery";
 import { Team } from "./Components/Pages/AboutUs/AboutUs";
+import NotFoundPage from "./Components/Pages/ErrorPage/ErrorPage";
 
  export const router = createBrowserRouter([
     {
       path: "/",
       element: <Roots></Roots>,
+      errorElement: <NotFoundPage></NotFoundPage>,
       children: [
         {
           path: "/",
