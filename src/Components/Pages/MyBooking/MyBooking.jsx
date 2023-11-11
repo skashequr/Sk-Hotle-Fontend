@@ -17,7 +17,7 @@ const MyBooking = () => {
   const [userbookingFetch, setUserbookingFetch] = useState([])
   const [userbooking , setUserBooking] = useState(userbookingFetch)
   useEffect(() => {
-    fetch(`http://localhost:5000/bookingRooms?email=${email}`)
+    fetch(`https://asom-backend.vercel.app/bookingRooms?email=${email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -53,7 +53,7 @@ const MyBooking = () => {
   };
 
   const handleCancelBooking = (_id) => {
-    fetch(`http://localhost:5000/bookingRooms/${_id}`, {
+    fetch(`https://asom-backend.vercel.app/bookingRooms/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -78,7 +78,7 @@ const MyBooking = () => {
     setSelectedRating(event.target.value);
   };
   useEffect(() => {
-    fetch("http://localhost:5000/roomdInfo")
+    fetch("https://asom-backend.vercel.app/roomdInfo")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -98,7 +98,7 @@ const MyBooking = () => {
   const namesArray = roomsdata.map((entry) => entry.name);
   // console.log(namesArray);
   useEffect(() => {
-    fetch("http://localhost:5000/bookingRoomsCount")
+    fetch("https://asom-backend.vercel.app/bookingRoomsCount")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -130,7 +130,7 @@ const MyBooking = () => {
       selectedValue
     };
     console.log(reviue);
-    fetch("http://localhost:5000/usersReviues", {
+    fetch("https://asom-backend.vercel.app/usersReviues", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

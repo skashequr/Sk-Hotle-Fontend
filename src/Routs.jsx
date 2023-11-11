@@ -33,22 +33,22 @@ import NotFoundPage from "./Components/Pages/ErrorPage/ErrorPage";
         {
           path: "/rooms",
           element: <Rooms></Rooms>,
-          loader:()=> fetch('http://localhost:5000/roomCount')
+          loader:()=> fetch('https://asom-backend.vercel.app/roomCount')
         },
         {
           path: "/rooms/description/:id",
           element: <CardDetails></CardDetails>,
-          loader: ({ params }) => fetch(`http://localhost:5000/rooms/description/${params.id}`)
+          loader: ({ params }) => fetch(`https://asom-backend.vercel.app/rooms/description/${params.id}`)
         },
         {
           path: "/bookingRooms",
           element: <PrivetRoute><MyBooking></MyBooking></PrivetRoute>,
-          loader: () => fetch("http://localhost:5000/bookingRooms")
+          loader: () => fetch("https://asom-backend.vercel.app/bookingRooms")
         },
         {
           path: "/bookingRooms/updateDate/:id",
           element: <UpdateBookinfDate></UpdateBookinfDate>,
-          loader: ({ params }) => fetch(`http://localhost:5000/updateDate/${params.id}`)
+          loader: ({ params }) => fetch(`https://asom-backend.vercel.app/updateDate/${params.id}`)
         },
         {
           path: "/gallery",

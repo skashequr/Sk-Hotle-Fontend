@@ -11,7 +11,7 @@ const UpdateBookingDate = () => {
 
   const handleUpdate = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/updateDate/${id}`, {
+      const response = await fetch(`https://asom-backend.vercel.app/updateDate/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

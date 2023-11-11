@@ -24,7 +24,7 @@ const HottleImgSlider = () => {
   }
   const [sort , setSort] = useState(-1)
   useEffect(() => {
-    fetch(`http://localhost:5000/roomdInfo?page=${currwntPage}&size=${itemsPerPage}&sort=${sort}`)
+    fetch(`https://asom-backend.vercel.app/roomdInfo?page=${currwntPage}&size=${itemsPerPage}&sort=${sort}`)
     .then(res=>res.json())
     .then(data => {setCurdInfo(data)
      

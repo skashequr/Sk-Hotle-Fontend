@@ -72,7 +72,7 @@ const CardDetails = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/reviues?name=${name}`
+          `https://asom-backend.vercel.app/reviues?name=${name}`
         );
 
         if (!response.ok) {
@@ -95,7 +95,7 @@ const CardDetails = () => {
   console.log();
   const handleDateClick = () => {
     console.log("Selected Date:", startDate.toDateString());
-    fetch("http://localhost:5000/mybookings", {
+    fetch("https://asom-backend.vercel.app/mybookings", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
