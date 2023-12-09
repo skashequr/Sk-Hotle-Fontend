@@ -1,4 +1,4 @@
-# Tasty App - Project Readme
+# SKHOTEL - Project Readme
 
 
 
@@ -8,9 +8,6 @@
 - [About the Tasty App](#about-the-tasty-app)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
 - [Authors](#authors)
 - [License](#license)
 
