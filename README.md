@@ -15,9 +15,9 @@
 
 A live demo of the Tasty App is available at: [Click Heare ](https://hottle-service.web.app/) (hosted on Firebase)
 
-## About the Tasty App
+## About the Sk Hotle Project
 
-The Tasty App is a collaborative project developed by five participants as part of a project course. The objective was to create a user-friendly web application that allows users to search for recipes based on various criteria. The app was developed using React, CSS, and a REST API, and it offers a range of features to facilitate the exploration and preparation of dishes. The Tasty App is responsive and can be used on desktop and mobile devices. It is available in English.
+The Sk Hotle is a collaborative project developed by five participants as part of a project course. The objective was to create a user-friendly web application that allows users to search for recipes based on various criteria. The app was developed using React, CSS, and a REST API, and it offers a range of features to facilitate the exploration and preparation of dishes. The Tasty App is responsive and can be used on desktop and mobile devices. It is available in English.
 
 ## Features
 
