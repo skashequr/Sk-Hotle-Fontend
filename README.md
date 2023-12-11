@@ -5,7 +5,7 @@
 ## Table of Contents
 
 - [Demo](#demo)
-- [About the Tasty App](#about-the-tasty-app)
+- [About the Sk Hotle App](#about-the-tasty-app)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Authors](#authors)
@@ -21,7 +21,7 @@ The Sk Hotle is a collaborative project developed by five participants as part o
 
 ## Features
 
-The Tasty App offers a wide array of features:
+The Sk Hotle App offers a wide array of features:
 
 - **Recipe Search:** Users can search for recipes along with their ingredients and instructions.
 - **Categorical Filters:** Recipes can be filtered by categories such as British, Indian, European, and more.
@@ -33,7 +33,7 @@ The Tasty App offers a wide array of features:
 
 ## Technologies Used
 
-The following technologies were used in the development of the Tasty App:
+The following technologies were used in the development of the Sk Hotle App:
 
 - React
 - JavaScript
